@@ -7,7 +7,6 @@ var VexflowParser = (function() {
         chord = [],
         tabDivNotes = tabDiv.parser.elements.notes,
         numLines = tabDivNotes.length;
-
         for (var i = 0; i < numLines; i++) {
             var numLineNotes = tabDivNotes[i].length;
 
@@ -15,6 +14,7 @@ var VexflowParser = (function() {
                 // Skip barlines - barline duration = "b"
                 if (tabDivNotes[i][j].duration !== "b") {
                     var numNotes = tabDivNotes[i][j].keys.length;
+                    
 
                     for (var k = 0; k < numNotes; k++) {
                         // Subtract 1 from octave since guitar sheet music is written an octave higher
@@ -25,6 +25,7 @@ var VexflowParser = (function() {
 
                     score.push({
                         "notes": chord,
+                        "position": tabDiv.parser.elements.tabnotes[i][j].positions,
                         "dur": duration
                     });
                     chord = [];

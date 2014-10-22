@@ -172,7 +172,7 @@ TabPlayer.prototype.setupCursorAnimation = function() {
         dynamicTempo = that.tempo;
     };
 
-
+    var lastPosition;
     var animateCursor = function(currentTime) {
 
         // TODO - find a better way to sync animation w/ dynamic tempo
@@ -182,7 +182,7 @@ TabPlayer.prototype.setupCursorAnimation = function() {
             currentNoteDuration = that.score[that.noteIndex].dur
               * 60 * that.notesPerBeat / that.tempo * that.sampleRate;
         }
-
+        
         notePercentComplete = (currentTime - noteStartTime) / currentNoteDuration;
 
         if (notePercentComplete > 1) {
@@ -190,6 +190,13 @@ TabPlayer.prototype.setupCursorAnimation = function() {
         }
 
         that.cursor.x = notePercentComplete * distance + begin_x;
+        var position = that.score[that.noteIndex];
+        if (position != lastPosition){
+          //Hijacking this function to notify the current note
+          lastPosition = position;
+          var event = new CustomEvent('note',{'detail':{'current':position}});
+          document.dispatchEvent(event);
+        }
     }
 
 
