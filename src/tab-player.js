@@ -205,6 +205,8 @@ TabPlayer.prototype.setupCursorAnimation = function() {
 
         // handle latency by starting animation when song actually starts
         // .getStartTime() returns null when audio is paused or stopped
+console.log(MusicTracker.getStartTime());
+console.log(currentTime);
         if (MusicTracker.getStartTime() && currentTime >= 0) {
 
             if (that.noteIndex === MusicTracker.getNoteIndex()) {

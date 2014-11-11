@@ -356,6 +356,8 @@ var MusicTracker = (function() {
         pause: pause,
         stop: stop,
 
+        audioCallback:audioCallback,
+
         setIsLooping: setIsLooping,
         setHasMetronome: setHasMetronome,
         setTempo: setTempo,
