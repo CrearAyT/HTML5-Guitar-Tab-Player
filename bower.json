@@ -1,0 +1,16 @@
+{
+  "name": "HTML5-Guitar-Tab-Player",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FacundoMainere/HTML5-Guitar-Tab-Player",
+  "authors": [
+    "Facundo Mainere <fmmainere@gmail.com>"
+  ],
+  "description": "Guitar tab player",
+  "main": "src/tab-player.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "1.11.1",
+    "raphael": "2.1.2",
+    "jqueryui": "1.11.2"
+  }
+}
